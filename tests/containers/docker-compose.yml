@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+  db_login:
+    image: postgres
+    ports:
+      - 5432:5432/tcp
+    volumes:
+      - /tmp/login_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: vete
+      POSTGRES_USER: vete
+      POSTGRES_PASSWORD: vete
+    #network_mode: "host"
