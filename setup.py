@@ -5,5 +5,6 @@ setup(name="vete",
     package_dir={"":"src"},
     packages=find_namespace_packages(where="src"),
     install_requires=[
+        'SQLAlchemy'
     ]
 )
