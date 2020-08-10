@@ -1,7 +1,8 @@
 import pytest
+import inject
 
 @pytest.fixture
 def model():
-    from vete.models.ClinicLogModel import ClinicLogModel
-    model = ClinicLogModel()
+    from vete_models.clinic.ClinicModel import ClinicModel
+    model = inject.instance(ClinicModel)
     return model

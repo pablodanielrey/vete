@@ -14,3 +14,8 @@ class ClinicModel:
         with self.sessions.get() as session:
             patients = session.query(Patient).all()
             return patients
+
+    def add_patient(self, patient: Patient):
+        with self.sessions.get() as session:
+            session.add(patient)
+            session.commit()
