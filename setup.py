@@ -9,6 +9,7 @@ setup(name="vete",
         'inject',
         'SQLAlchemy',
         'Flask',
+        'flask-wtf',
         'psycopg2-binary'
     ]
 )

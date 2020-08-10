@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <from method=post>
+            {{ form.hidden_tag() }}
+            {{ form.name }}
+            {{ form.birth }}
+            {{ form.species }}
+            {{ form.gender }}
+            {{ form.breed }}
+            {{ form.color }}
+            {{ form.fur }}
+            {{ form.blood_type }}
+        </from>
+    </div>
+{% endblock %}

@@ -28,9 +28,11 @@ def patients(config: Config, model: ClinicModel):
         return render_template('error.html', error='', version=config.version)
 
 @bp.route('/patient', methods=['GET'])
-def patient(config):
+@inject.autoparams()
+def patient(config: Config):
     return render_template('patient.html', version=config.version)
 
 @bp.route('/patient', methods=['POST'])
-def patients_create(config):
+@inject.autoparams()
+def patients_create(config: Config):
     return render_template('patient.html', version=config.version)
