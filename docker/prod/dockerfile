@@ -1,0 +1,10 @@
+FROM python:3.8
+
+RUN pip install -U pip && pip install gunicorn
+
+COPY src /src
+WORKDIR /src
+
+RUN cd /src && pip install -e .
+
+CMD /usr/local/bin/gunicorn --worker-tmp-dir /dev/shm --workers=2 --threads=4 --worker-class=gthread vete.web:app
