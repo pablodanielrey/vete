@@ -5,7 +5,6 @@ from sqlalchemy.orm import sessionmaker
 
 from .config import Config
 
-
 class Engine:
     @inject.autoparams()
     def __init__(self, config: Config):

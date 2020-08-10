@@ -13,5 +13,7 @@ class Config(config.Config):
 
 
 def configure(binder):
-    binder.bind(config.Config, Config())
+    _config = Config()
+    binder.bind(config.Config, _config)
+    binder.bind(Config, _config)
 
