@@ -1,5 +1,7 @@
 
-class Config:
+from vete_models import config
+
+class Config(config.Config):
     
     def __init__(self):
         self.version = '0.0.1'
@@ -11,5 +13,5 @@ class Config:
 
 
 def configure(binder):
-    pass
+    binder.bind(config.Config, Config())
 

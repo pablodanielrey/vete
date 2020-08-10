@@ -1,8 +1,8 @@
 import inject
 
-from .db import Sessions
-
+from vete_models.db import Sessions
 from vete_entities.clinic.patient import Patient
+
 
 class ClinicModel:
 
