@@ -7,9 +7,6 @@ setup(name="vete_models",
     install_requires=[
         'vete_entities',
         'inject',
-        'SQLAlchemy',
-        'Flask',
-        'flask-wtf',
-        'psycopg2-binary'
+        'SQLAlchemy'
     ]
 )
