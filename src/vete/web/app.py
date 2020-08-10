@@ -1,3 +1,7 @@
+import inject
+from vete.config import configure
+inject.configure(configure)
+
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask import Flask
 webapp = Flask(__name__)

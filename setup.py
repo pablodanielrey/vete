@@ -5,8 +5,10 @@ setup(name="vete",
     package_dir={"":"src"},
     packages=find_namespace_packages(where="src"),
     install_requires=[
+        'vete_entities',
         'inject',
         'SQLAlchemy',
-        'Flask'
+        'Flask',
+        'psycopg2-binary'
     ]
 )

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        {% for p in patients %}
+            <div>{{ p.name }}</div>
+            <div>{{ p.birth }}</div>
+            <div>{{ p.species }}</div>
+            <div>{{ p.gender }}</div>
+            <div>{{ p.breed }}</div>
+            <div>{{ p.color }}</div>
+            <div>{{ p.fur }}</div>
+            <div>{{ blood_type }}</div>
+        {% endfor %}
+    </div>
+{% endblock %}

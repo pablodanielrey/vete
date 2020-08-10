@@ -7,5 +7,7 @@
 			"path": "../vete-entities"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.pythonPath": "env/bin/python"
+	}
 }
