@@ -1,5 +1,5 @@
 import inject
-from vete.config import configure
+from vete_flask.config import configure
 inject.configure(configure)
 
 from werkzeug.middleware.proxy_fix import ProxyFix

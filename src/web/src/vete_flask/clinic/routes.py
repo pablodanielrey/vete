@@ -2,8 +2,8 @@ import logging
 import inject
 from flask import render_template, flash, redirect,request, Markup, url_for, send_from_directory, jsonify
 
-from vete.config import Config
-from vete.models.ClinicModel import ClinicModel
+from vete_flask.config import Config
+from vete_models.clinic.ClinicModel import ClinicModel
 from . import bp
 
 
