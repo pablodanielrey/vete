@@ -4,7 +4,6 @@ from sqlalchemy import ForeignKey, Column, Integer, Float, String, DateTime, Tex
 from vete_entities import Base
 from . import Gender
 
-Species = enum.Enum('Specie', ['CAT', 'DOG'])
 
 
 class Patient(Base):
@@ -16,14 +15,12 @@ class Patient(Base):
     deleted = Column(DateTime)
     name = Column(String)
     birth = Column(Date)
-
-    species = Column(Enum(Species))
     gender = Column(Enum(Gender))
-
-    breed = Column(String)
     color = Column(String)
     fur = Column(String)
     bood_type = Column(String)
+    
+    breed_id = Column(String, ForeignKey('breeds.id'), nullable=False)
 
 
 class Castrated(Base):

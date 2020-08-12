@@ -5,7 +5,7 @@ services:
     ports:
       - 5432:5432/tcp
     volumes:
-      - /tmp/login_db:/var/lib/postgresql/data
+      - /tmp/vete_db:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: vete
       POSTGRES_USER: vete

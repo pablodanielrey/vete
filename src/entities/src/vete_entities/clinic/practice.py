@@ -2,6 +2,8 @@ from sqlalchemy import ForeignKey, Column, Integer, Float, String, DateTime, Tex
 
 from vete_entities import Base
 
+from . import MedicationUnit
+
 
 class Practice(Base):
 
@@ -27,7 +29,7 @@ class MedApplication(Base):
 
     date = Column(Date)
     dose = Column(Float)
-    unit = Column(SQLEnum())
+    unit = Column(Enum(MedicationUnit))
     medication = Column(String)
     description = Column(Text)
 

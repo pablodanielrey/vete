@@ -1,16 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
     <div>
-        <from method=post>
-            {{ form.hidden_tag() }}
-            {{ form.name }}
-            {{ form.birth }}
-            {{ form.species }}
-            {{ form.gender }}
-            {{ form.breed }}
-            {{ form.color }}
-            {{ form.fur }}
-            {{ form.blood_type }}
+        <from method="post">
+            {{ form.csrf_token }}
+            {{ form.name.label }} {{ form.name }}
+            {{ form.birth.label }} {{ form.birth }}
+            <div>
+                {{ form.species.label }} {{ form.species }}
+            </div>
+            {{ form.gender.label }} {{ form.gender }}
+            {{ form.breed.label }} {{ form.breed }}
+            {{ form.color.label }} {{ form.color }}
+            {{ form.fur.label }} {{ form.fur }}
+            {{ form.blood_type.label }} {{ form.blood_type }}
+            <input type="submit" value="Agregar"/>
         </from>
     </div>
+
+    <script>
+        species_select = document.getElementById('species');
+        breeds_select = document.getElementById('breed');
+
+        species_select.onchange = function() {
+            species = species_select.value;
+            fetch('breeds/' + species).then(function(response) {
+                response.json().then(function(data) {
+                    optionHtml = '';
+                    for (breed of data.data) {
+                        optionHtml += '<option value="' + breed.id + '">' + breed.name + '</option>';
+                    }
+                    breeds_select.innerHTML = optionHtml;
+                });
+            });
+        }
+
+        window.onload = function() {
+            species_select = document.getElementById('species');
+            fetch('species').then(function(response) {
+                response.json().then(function(data) {
+                    optionHtml = '';
+                    for (species of data.data) {
+                        optionHtml += '<option value="' + species.id +'">' + species.name + '</option>';
+                    }
+                    species_select.innerHTML = optionHtml;
+                });
+            });
+        };
+    </script>
 {% endblock %}

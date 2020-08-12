@@ -10,6 +10,7 @@ setup(name="vete_flask",
         'SQLAlchemy',
         'Flask',
         'flask-wtf',
+        'WTForms-SQLAlchemy',
         'psycopg2-binary'
     ]
 )
