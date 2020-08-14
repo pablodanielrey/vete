@@ -18,33 +18,50 @@
     </div>
 
     <script>
-        species_select = document.getElementById('species');
-        breeds_select = document.getElementById('breed');
 
+        species_select = document.getElementById('species');
         species_select.onchange = function() {
+            breeds_select = document.getElementById('breed');
             species = species_select.value;
-            fetch('breeds/' + species).then(function(response) {
-                response.json().then(function(data) {
-                    optionHtml = '';
-                    for (breed of data.data) {
-                        optionHtml += '<option value="' + breed.id + '">' + breed.name + '</option>';
-                    }
-                    breeds_select.innerHTML = optionHtml;
+            fetch('breeds/' + species).then(
+                function(response) {
+                    response.json().then(
+                        function(data) {
+                            optionHtml = '';
+                            for (breed of data.data) {
+                                optionHtml += '<option value="' + breed.id + '">' + breed.name + '</option>';
+                            }
+                            breeds_select.innerHTML = optionHtml;
+                        },
+                        function(e) {
+                            breeds_select.innerHTML = '';
+                        });
+                },
+                function(e) {
+                    breeds_select.innerHTML = '';
                 });
-            });
         }
 
         window.onload = function() {
             species_select = document.getElementById('species');
-            fetch('species').then(function(response) {
-                response.json().then(function(data) {
-                    optionHtml = '';
-                    for (species of data.data) {
-                        optionHtml += '<option value="' + species.id +'">' + species.name + '</option>';
-                    }
-                    species_select.innerHTML = optionHtml;
+            breeds_select = document.getElementById('breed');
+            fetch('species').then(
+                function(response) {
+                    response.json().then(
+                        function(data) {
+                            optionHtml = '';
+                            for (species of data.data) {
+                                optionHtml += '<option value="' + species.id +'">' + species.name + '</option>';
+                            }
+                            species_select.innerHTML = optionHtml;
+                        },
+                        function(e) {
+                            species_select.innerHTML = '';
+                        });
+                },
+                function(e) {
+                    species_select.innerHTML = '';
                 });
-            });
         };
     </script>
 {% endblock %}
