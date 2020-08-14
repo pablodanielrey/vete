@@ -19,7 +19,7 @@ class Card(Base):
     deleted = Column(DateTime)
 
     person_id = Column(String, ForeignKey('persons.id'))
-    type = Column(SQLEnum(CardTypes))
+    type = Column(SQLEnum(CardType))
     number = Column(String)
     code = Column(String)
     brand = Column(String)

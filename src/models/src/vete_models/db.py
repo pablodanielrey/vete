@@ -26,6 +26,9 @@ class Sessions:
 
     def generate_database(self):
         from vete_entities import Base
+        from vete_entities.clinic.patient import Patient, Castrated, Vitals
+        #from vete_entities.clinic.practice import Practice, MedApplication
+        #from vete_entities.payment.Card import Card
         engine = self.engine.get()
         try:
             Base.metadata.create_all(engine)
