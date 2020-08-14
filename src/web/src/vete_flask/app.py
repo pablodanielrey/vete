@@ -16,7 +16,9 @@ class EntitySerializer(json.JSONEncoder):
 
 from werkzeug.middleware.proxy_fix import ProxyFix
 from flask import Flask
-webapp = Flask(__name__)
+webapp = Flask(__name__, 
+            static_folder='index/static',
+            template_folder='index/templates')
 webapp.config['SECRET_KEY'] = 'you-will-never-guess'
 webapp.wsgi_app = ProxyFix(webapp.wsgi_app)
 webapp.json_encoder = EntitySerializer
